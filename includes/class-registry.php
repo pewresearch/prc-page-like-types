@@ -46,7 +46,6 @@ class Registry {
 		$this->loader->add_action( 'init', $this, 'register_page_like_types', 10, 1 );
 		$this->loader->add_filter( 'prc_platform_post_publish_pipeline_post_types', $this, 'opt_page_like_types_into_pipeline', 10, 1 );
 		$this->loader->add_action( 'prc_platform_on_incremental_save', $this, 'enforce_page_like_type_format', 10, 1 );
-		$this->loader->add_filter( 'prc_platform_main_feed_post_types', $this, 'opt_into_main_feed', 10, 1 );
 		// $this->loader->add_filter( 'prc_schema_seo_schema_type_default', $this, 'set_fact_sheet_schema_type', 20, 3 );
 	}
 
@@ -191,7 +190,7 @@ class Registry {
 			'custom-fields',
 			'comments',
 			'prc-schema-seo',
-			'prc-social',
+			'prc-social-builder',
 			'prc-bylines',
 			'prc-art-direction',
 			'prc-datasets',
@@ -292,19 +291,6 @@ class Registry {
 			}
 			wp_set_object_terms( $post->ID, $format_id, 'formats', true );
 		}
-	}
-
-	/**
-	 * Opt the fact-sheet type into the main feed.
-	 *
-	 * @hook prc_platform_main_feed_post_types
-	 *
-	 * @param array $post_types The post types.
-	 * @return array The post types.
-	 */
-	public function opt_into_main_feed( $post_types ) {
-		$post_types[] = 'fact-sheet';
-		return $post_types;
 	}
 
 	/**
