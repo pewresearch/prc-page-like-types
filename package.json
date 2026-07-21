@@ -1,6 +1,6 @@
 {
 	"name": "@prc/page-like-types",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "PRC Page Like Types provides 'page like' content types like pewresearch.org/courses, pewresearch.org/press-releases, or pewresearch.org/events for PRC Platform.",
 	"scripts": {},
 	"devDependencies": {
