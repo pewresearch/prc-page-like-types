@@ -81,6 +81,7 @@ class Plugin {
 
 		// Load dependencies.
 		require_once plugin_dir_path( __DIR__ ) . '/includes/class-registry.php';
+		require_once plugin_dir_path( __DIR__ ) . '/includes/class-admin-dataview-lists.php';
 
 		// Initialize the dependencies.
 		$this->init_dependencies();
@@ -94,6 +95,7 @@ class Plugin {
 	 */
 	private function init_dependencies() {
 		$this->registry = new Registry( $this->get_loader() );
+		new Admin_Dataview_Lists( $this->get_loader() );
 
 		// Courses.
 		$this->registry->register(

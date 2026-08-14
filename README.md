@@ -1,5 +1,7 @@
 # PRC Page-Like Types
 
+> Canonical docs: [docs/plugins/prc-page-like-types/](../../docs/plugins/prc-page-like-types/)
+
 Registers "page-like" custom post types for PRC Platform — content types that share a simple `/{slug}/{post-name}` permalink structure and a common feature set, but are editorially and functionally independent of each other.
 
 ## What it does
