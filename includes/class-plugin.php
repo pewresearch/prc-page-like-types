@@ -113,7 +113,7 @@ class Plugin {
 				),
 				'menu_icon' => 'dashicons-welcome-learn-more',
 			),
-			array( 'datasets', 'collections', 'bylines' )
+			array( 'datasets', 'collection', 'bylines' )
 		);
 
 		// Events.
@@ -146,7 +146,7 @@ class Plugin {
 					'slug' => 'fact-sheet',
 				),
 			),
-			array( 'datasets', 'collections', 'bylines' )
+			array( 'datasets', 'collection', 'bylines' )
 		);
 
 		// Add custom fields to the standard page post type.

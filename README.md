@@ -19,9 +19,9 @@ Registers "page-like" custom post types for PRC Platform — content types that 
 
 | Post type     | URL slug      | `pub_listing` | Notes                                                                              |
 | ------------- | ------------- | ------------- | ---------------------------------------------------------------------------------- |
-| `mini-course` | `/course`     | No            | Additional taxonomies: `datasets`, `collections`, `bylines`                        |
+| `mini-course` | `/course`     | No            | Additional taxonomies: `datasets`, `collection`, `bylines`                        |
 | `events`      | `/event`      | No            | Default taxonomy set only                                                          |
-| `fact-sheet`  | `/fact-sheet` | Yes           | Additional taxonomies: `datasets`, `collections`, `bylines`; included in main feed |
+| `fact-sheet`  | `/fact-sheet` | Yes           | Additional taxonomies: `datasets`, `collection`, `bylines`; included in main feed |
 
 ### Default supports (all types)
 
