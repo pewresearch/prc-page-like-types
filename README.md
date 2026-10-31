@@ -6,21 +6,21 @@ Registers "page-like" custom post types for PRC Platform — content types that 
 
 ## What it does
 
--   Registers three custom post types: `mini-course` (URL: `/course/{post-name}`), `events` (URL: `/event/{post-name}`), and `fact-sheet` (URL: `/fact-sheet/{post-name}`)
--   Provides a `Registry` class that standardizes post type registration across all page-like types — labels, rewrite rules, taxonomy assignments, and default feature support
--   Opts all registered types into the PRC Platform post-publish pipeline via `prc_platform_post_publish_pipeline_post_types`
--   `fact-sheet` declares `pub_listing`, so it gets `prc-publication-listing` support and is included in the main RSS feed by `prc-publication-listing`
--   Enforces a matching `formats` taxonomy term on every page-like post at incremental save (auto-creating the term if it doesn't exist)
--   Enables `custom-fields` and `comments` support on the built-in `page` post type
--   Adds `notes` editor support to every registered page-like type (merging into existing editor supports without overwriting them)
--   Includes `pub_listing` flag on `fact-sheet`, which opts it into the `_post_visibility` taxonomy and enables `prc-publication-listing` post type support
+- Registers three custom post types: `mini-course` (URL: `/course/{post-name}`), `events` (URL: `/event/{post-name}`), and `fact-sheet` (URL: `/fact-sheet/{post-name}`)
+- Provides a `Registry` class that standardizes post type registration across all page-like types — labels, rewrite rules, taxonomy assignments, and default feature support
+- Opts all registered types into the PRC Platform post-publish pipeline via `prc_platform_post_publish_pipeline_post_types`
+- `fact-sheet` declares `pub_listing`, so it gets `prc-publication-listing` support and is included in the main RSS feed by `prc-publication-listing`
+- Enforces a matching `formats` taxonomy term on every page-like post at incremental save (auto-creating the term if it doesn't exist)
+- Enables `custom-fields` and `comments` support on the built-in `page` post type
+- Adds `notes` editor support to every registered page-like type (merging into existing editor supports without overwriting them)
+- Includes `pub_listing` flag on `fact-sheet`, which opts it into the `_post_visibility` taxonomy and enables `prc-publication-listing` post type support
 
 ## Registered post types
 
-| Post type     | URL slug      | `pub_listing` | Notes                                                                              |
-| ------------- | ------------- | ------------- | ---------------------------------------------------------------------------------- |
+| Post type     | URL slug      | `pub_listing` | Notes                                                                             |
+| ------------- | ------------- | ------------- | --------------------------------------------------------------------------------- |
 | `mini-course` | `/course`     | No            | Additional taxonomies: `datasets`, `collection`, `bylines`                        |
-| `events`      | `/event`      | No            | Default taxonomy set only                                                          |
+| `events`      | `/event`      | No            | Default taxonomy set only                                                         |
 | `fact-sheet`  | `/fact-sheet` | Yes           | Additional taxonomies: `datasets`, `collection`, `bylines`; included in main feed |
 
 ### Default supports (all types)
@@ -85,19 +85,19 @@ $this->registry->register(
 
 The type is automatically:
 
--   Registered with `register_post_type()` on `init`
--   Opted into the post-publish pipeline
--   Given `notes` editor support
--   Assigned a matching `formats` term on every save
+- Registered with `register_post_type()` on `init`
+- Opted into the post-publish pipeline
+- Given `notes` editor support
+- Assigned a matching `formats` term on every save
 
 Set `pub_listing: true` to also opt into `_post_visibility` taxonomy and `prc-publication-listing` support.
 
 ## Dependencies
 
--   `prc-platform-core` (required) — provides `prc_platform_post_publish_pipeline_post_types` and `prc_platform_on_incremental_save` hooks
+- `prc/primitives` (required) — the post publish pipeline provides the `prc_platform_post_publish_pipeline_post_types` and `prc_platform_on_incremental_save` hooks
 
 ## Notes
 
--   The `set_fact_sheet_schema_type` method (sets schema type to `Report` for `fact-sheet`) is currently commented out pending schema SEO integration.
--   `capability_type` is set to `page` for all registered types, meaning editorial permissions mirror the `page` post type.
--   Flushing rewrite rules after activating or adding a new type is required; the activator handles this on plugin activation.
+- The `set_fact_sheet_schema_type` method (sets schema type to `Report` for `fact-sheet`) is currently commented out pending schema SEO integration.
+- `capability_type` is set to `page` for all registered types, meaning editorial permissions mirror the `page` post type.
+- Flushing rewrite rules after activating or adding a new type is required; the activator handles this on plugin activation.
